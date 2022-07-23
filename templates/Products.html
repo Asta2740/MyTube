@@ -1,0 +1,60 @@
+{% extends 'Sceleton.html'%}
+<title>Title</title>
+{% block head%}
+
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <table style="width:180%">
+        <tr>
+            <th>
+                <div class="shein2egypt" style="max-width:1400px">
+                    <h1 class="shein2egypt-text">Make your Own Playlist</h1>
+                    <br>
+
+                    <form action="/" method="POST">
+
+                        <div class="form"><input type="text" class="search-box-shein" id="Url" name="Url"
+                                                 placeholder="youtube link here (FULL URL)"/>
+                            <button class="search-btn-shein">search
+                            </button>
+
+
+                        </div>
+                    </form>
+
+                </div>
+                                <audio src='' controls id="audioPlayer">
+                    Sorry, your browser doesn't support html5!
+                </audio>
+            </th>
+            <th>
+
+
+
+                <ul id="playlist">
+                    {% for task in tasks %}
+
+                    <li><a href={{task.path}}>{{task.name}}</a></li>
+                    {%endfor%}
+                </ul>
+                <script src="https://code.jquery.com/jquery-2.2.0.js"></script>
+                <script src="audioPlayer.js"></script>
+                <script>
+        // loads the audio player
+        audioPlayer();
+
+
+
+
+
+                </script>
+            </th>
+
+        </tr>
+    </table>
+
+</div>
+
+{% endblock %}

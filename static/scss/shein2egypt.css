@@ -1,0 +1,117 @@
+
+body{
+    background-color:#F2EBE5;
+}
+.shein2egypt-text{
+    color: rgb(9, 9, 9);
+    text-align: center;
+    text-align-last: center;
+    direction: rtl
+
+
+}
+.shein{
+    color: gray;
+    text-align: center;
+
+}
+
+.form{
+    text-align: center;
+    width: 500px;
+    display: flex;
+    margin: auto;
+
+
+}
+.search-box-shein{
+    width: 80%;
+    height: 18px;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: 1px solid #d1d1d1;
+    text-transform: capitalize;
+    background: none;
+    color: #a9a9a9;
+    outline: none;
+    margin: auto;
+    margin-bottom: 5rem;
+    
+}
+.search-btn-shein{
+
+    width: 20%;
+    height: 40px;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: #383838;
+    color: #fff;
+    text-transform: capitalize;
+    font-size: 15px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+.shein-text{
+ color: rgb(9, 9, 9);
+    text-align: center;
+    text-align-last: center;
+
+}
+
+.shein-img{
+    text-align: center;
+    margin-Bottom="21"
+    margin: auto;
+
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+.text{
+    text-align:center;
+    text-align-last: left;
+    line-height: 1.4;
+    margin-left: 26rem;
+   margin-bottom: -1rem;
+   color: black
+}
+.size{
+  width: 20%;
+    font-size: 130%;
+    line-height: 2.4;
+
+}
+
+ div#wrap div &gt; h1 {
+            color: $o-brand-odoo;
+        }

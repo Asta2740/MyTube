@@ -1,0 +1,43 @@
+{% extends 'Sceleton.html'%}
+<title>Title</title>
+{% block head%}
+
+{% endblock %}
+
+{% block body %}
+<div class="container">
+
+
+    <div class="shein2egypt" style="max-width:1400px">
+        <h1 class="shein2egypt-text">Shop from online SHEIN Store in SA</h1>
+        <h3 class="shein">Delivers to your address in Egypt, Pay in Egyptian Pounds</h3>
+        <br>
+
+        <form action="/" method="POST">
+
+            <div class="form"><input type="text" class="search-box-shein" id="Url" name="Url"
+                                     placeholder="Product link here (FULL URL)"/>
+                <button class="search-btn-shein">search
+                </button>
+
+
+            </div>
+        </form>
+        <audio controls autoplay>
+            <source src="horse.ogg" type="audio/ogg">
+            <source src="horse.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        </br>
+
+                {% for task in tasks %}
+
+                {%endfor%}
+
+
+    </div>
+
+
+</div>
+{% endblock %}
