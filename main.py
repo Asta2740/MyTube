@@ -46,7 +46,7 @@ def index():
         except:
             pass
 
-        return render_template('Products.html', tasks=tasks)
+        return render_template('music_player.html', tasks=tasks)
 
 
 if __name__ == "__main__":
