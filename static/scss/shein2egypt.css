@@ -26,7 +26,7 @@ body{
 }
 .search-box-shein{
     width: 80%;
-    height: 18px;
+    height: 40px;
     padding: 10px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -37,7 +37,7 @@ body{
     outline: none;
     margin: auto;
     margin-bottom: 5rem;
-    
+
 }
 .search-btn-shein{
 

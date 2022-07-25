@@ -1,10 +1,55 @@
 {% extends 'Sceleton.html'%}
 <title>Title</title>
 {% block head%}
-
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 {% endblock %}
 
 {% block body %}
+<form action="/" method="POST">
+    <div class="search">
+        <input type="text" id="searchInput" id="Url" name="Url" placeholder="youtube link here (FULL URL)">
+        <button id="searchButton">search</button>
+    </div>
+</form>
+<div class="container">
 
+
+    <div class="main-video">
+        <div class="video">
+            <img src={{tasks[Last_id[-1].Played_id].image}} alt={{tasks[Last_id[-1].Played_id].name}} width="700"
+                 height="400">
+            <audio src='' controls id="audioPlayer">
+                    Sorry, your browser doesn't support html5!
+                </audio>
+            <h3 class="title">{{tasks[Last_id[-1].Played_id].name}}</h3>
+
+        </div>
+    </div>
+
+
+    <div class="video-list">
+        {% for task in tasks %}
+        <div class="vid" onclick='myfunction({{task.id}}); refreshPage();'>
+            <ul id="playlist">
+
+
+                    <li><a href={{task.path}}>{{task.name}}</a></li>
+
+                </ul>
+
+            <h3 class="title" id="demo">{{task.name}}</h3>
+        </div>
+
+        {%endfor%}
+
+
+    </div>
+
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+
+</div>
 
 {% endblock %}

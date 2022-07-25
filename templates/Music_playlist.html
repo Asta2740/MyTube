@@ -1,0 +1,83 @@
+{% extends 'Sceleton.html'%}
+<title>Title</title>
+{% block head%}
+
+<title>CodePen - HTML5 Audio Player with Playlist</title>
+<link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css'>
+<link rel="stylesheet" href="scss/style.css">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <form action="/" method="POST">
+
+        <div class="form"><input type="text" class="search-box-shein" id="Url" name="Url"
+                                 placeholder="youtube link here (FULL URL)"/>
+            <button class="search-btn-shein">search
+            </button>
+
+
+        </div>
+    </form>
+
+    <audio id="audio" preload="none" tabindex="0">
+        {% for task in tasks %}
+        <source src={{task.path}} data-track-number={{task.id}}/>
+        {%endfor%}
+        Your browser does not support HTML5 audio.
+    </audio>
+
+    <div class="player">
+
+        <div class="large-toggle-btn">
+            <i class="large-play-btn"><span class="screen-reader-text">Large toggle button</span></i>
+        </div>
+        <div class="info-box">
+            <div class="track-info-box">
+                <div class="track-title-text"></div>
+                <div class="audio-time">
+                    <span class="current-time">00:00</span> /
+                    <span class="duration">00:00</span>
+                </div>
+            </div>
+            <!-- /.info-box -->
+            <div class="progress-box">
+                <div class="progress-cell">
+                    <div class="progress">
+                        <div class="progress-buffer"></div>
+                        <div class="progress-indicator"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.progress-box -->
+        <div class="controls-box">
+            <i class="previous-track-btn disabled"><span class="screen-reader-text">Previous track button</span></i>
+            <i class="next-track-btn"><span class="screen-reader-text">Next track button</span></i>
+        </div>
+
+        <!-- /.controls-box -->
+    </div>
+    <div class="play-list">
+        {% for task in tasks %}
+        <div class="play-list-row" data-track-row={{task.id}}>
+            <div class="small-toggle-btn">
+                <i class="small-play-btn"><span class="screen-reader-text">Small toggle button</span></i>
+            </div>
+            <div class="track-number">
+                {{task.id}}
+            </div>
+            <div class="track-title">
+                <a class="playlist-track" href="#" data-play-track={{task.id}}>{{task.name}}</a>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+<!-- partial -->
+<script src="static/js/script.js"></script>
+
+
+{% endblock %}

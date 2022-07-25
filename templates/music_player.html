@@ -5,43 +5,53 @@
 {% endblock %}
 
 {% block body %}
+<form action="/" method="POST">
+    <div class="search">
+        <input type="text" id="searchInput" id="Url" name="Url"
+               placeholder="youtube link here (FULL URL)">
+        <button id="searchButton">search</button>
+    </div>
+</form>
+
 <div class="container">
-    <table style="width:180%">
-        <tr>
-            <th>
-                <div class="shein2egypt" style="max-width:1400px">
-                    <h1 class="shein2egypt-text">Make your Own Playlist</h1>
-                    <br>
+    <div class="main-video">
+        <div class="video">
+            <img src={{tasks[Last_id[-1].Played_id].image}} alt={{tasks[Last_id[-1].Played_id].name}} width="700"
+                 height="400">
+            <audio src='' controls id="audioPlayer">
+                Sorry, your browser doesn't support html5!
+            </audio>
+            <h3 class="title">{{tasks[Last_id[-1].Played_id].name}}</h3>
 
-                    <form action="/" method="POST">
-
-                        <div class="form"><input type="text" class="search-box-shein" id="Url" name="Url"
-                                                 placeholder="youtube link here (FULL URL)"/>
-                            <button class="search-btn-shein">search
-                            </button>
-
-
-                        </div>
-                    </form>
-
-                </div>
-                                <audio src='' controls id="audioPlayer">
-                    Sorry, your browser doesn't support html5!
-                </audio>
-            </th>
-            <th>
+        </div>
+    </div>
 
 
 
-                <ul id="playlist">
-                    {% for task in tasks %}
 
-                    <li><a href={{task.path}}>{{task.name}}</a></li>
-                    {%endfor%}
-                </ul>
-                <script src="https://code.jquery.com/jquery-2.2.0.js"></script>
-                <script src="audioPlayer.js"></script>
-                <script>
+    <div class="video-list">
+        {% for task in tasks %}
+        <div class="vid">
+            <ul id="playlist">
+
+
+                <li><a href={{task.path}} onclick='myfunction({{task.id}});' >{{task.name}}</a></li>
+
+            </ul>
+
+
+        </div>
+
+        {%endfor%}
+
+
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-2.2.0.js"></script>
+<script src="audioPlayer.js"></script>
+<script>
         // loads the audio player
         audioPlayer();
 
@@ -49,11 +59,14 @@
 
 
 
-                </script>
-            </th>
 
-        </tr>
-    </table>
+
+
+
+
+
+</script>
+
 
 </div>
 
