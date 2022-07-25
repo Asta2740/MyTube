@@ -2,7 +2,7 @@
 <title>Title</title>
 {% block head%}
 
-<title>CodePen - HTML5 Audio Player with Playlist</title>
+<title>MyTube</title>
 <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css'>
 <link rel="stylesheet" href="scss/style.css">
@@ -10,6 +10,10 @@
 
 {% block body %}
 <div class="container">
+     <div class="shein2egypt" style="max-width:1400px">
+        <h1 class="shein2egypt-text">MyTube</h1>
+
+        <br>
     <form action="/" method="POST">
 
         <div class="form"><input type="text" class="search-box-shein" id="Url" name="Url"
@@ -60,21 +64,25 @@
 
         <!-- /.controls-box -->
     </div>
-    <div class="play-list">
-        {% for task in tasks %}
-        <div class="play-list-row" data-track-row={{task.id}}>
-            <div class="small-toggle-btn">
-                <i class="small-play-btn"><span class="screen-reader-text">Small toggle button</span></i>
-            </div>
-            <div class="track-number">
-                {{task.id}}
-            </div>
-            <div class="track-title">
-                <a class="playlist-track" href="#" data-play-track={{task.id}}>{{task.name}}</a>
+    <div class="video-list">
+        <div class="play-list">
+            {% for task in tasks %}
+            <div class="vid">
+            <div class="play-list-row" data-track-row={{task.id}}>
+                <div class="small-toggle-btn">
+                    <i class="small-play-btn"><span class="screen-reader-text">Small toggle button</span></i>
+                </div>
+                <div class="track-number">
+                    {{task.id}}
+                </div>
+                <div class="track-title">
+                    <a class="playlist-track" href="#" data-play-track={{task.id}}>{{task.name}}</a>
+                </div>
             </div>
         </div>
         {%endfor%}
     </div>
+</div>
 </div>
 <!-- partial -->
 <script src="static/js/script.js"></script>

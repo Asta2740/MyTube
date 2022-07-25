@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template, request, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
-from Scrapper import youtube
+from Scrapper import youtube, Youtube_list
 import json
 from datetime import datetime
 
@@ -29,17 +29,53 @@ class PlayedMusic(db.Model):
 def index():
     if request.method == 'POST':
         task_content = request.form['Url']
-        content = youtube(task_content)
+        if "&list" in task_content:
+            content = Youtube_list(task_content)
+            try:
 
-        number_of_music = 0
-        tasks = Music.query.order_by(Music.id).all()
-        for count in tasks:
-            number_of_music = number_of_music + 1
+                for Specific_song in content:
+                    number_of_music = 0
+                    tasks = Music.query.order_by(Music.id).all()
+                    print("1")
+                    for count in tasks:
+                        number_of_music = number_of_music + 1
+                    print("2")
+                    print(Specific_song[1] ,Specific_song[1][17:30] )
+                    os.rename(Specific_song[1], Specific_song[1][17:30] + 'new' + str(number_of_music) + '.mp3')
+                    print("3")
+                    new_path = Specific_song[1][17:30] + 'new' + str(number_of_music) + '.mp3'
+                    print("4")
+                    new_task1 = Music(name=Specific_song[2], path=new_path, image=Specific_song[0])
+                    print("5")
+                    try:
+                        db.session.add(new_task1)
+                        print("added")
+                        db.session.commit()
+                        print("created")
 
-        os.rename(content[1], content[1][17:30] + 'new' + str(number_of_music) + '.mp3')
+                    except:
+                        return "there was an error"
+                return redirect('/')
 
-        new_path = content[1][17:30] + 'new' + str(number_of_music) + '.mp3'
-        new_task1 = Music(name=content[2], path=new_path, image=content[0])
+
+
+
+
+            except:
+                return "errorrrrrrrrr"
+
+        else:
+            content = youtube(task_content)
+
+            number_of_music = 0
+            tasks = Music.query.order_by(Music.id).all()
+            for count in tasks:
+                number_of_music = number_of_music + 1
+
+            os.rename(content[1], content[1][17:30] + 'new' + str(number_of_music) + '.mp3')
+
+            new_path = content[1][17:30] + 'new' + str(number_of_music) + '.mp3'
+            new_task1 = Music(name=content[2], path=new_path, image=content[0])
 
         try:
             db.session.add(new_task1)
@@ -56,11 +92,11 @@ def index():
 
         except:
             pass
-        # try:
-        #     for x in tasks:
-        #         print(x.path)
-        # except:
-        #     pass
+        try:
+            for x in tasks:
+                print(x.id)
+        except:
+            pass
         #
         # print(tasks)
         # print(playing_id)
@@ -77,8 +113,8 @@ def test():
     # print(result) # Printing the new dictionary
     # print(type(result))#this shows the json converted as a python dictionary
 
-    New_id = result['firstname']-1
-    print(New_id    )
+    New_id = result['firstname'] - 1
+    print(New_id)
 
     new_task1 = PlayedMusic(Played_id=New_id)
     try:

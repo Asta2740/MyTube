@@ -1,61 +1,59 @@
-{% extends 'Sceleton.html'%}
-<title>Title</title>
-{% block head%}
+<!--{% extends 'Sceleton.html'%}-->
+<!--<title>Title</title>-->
+<!--{% block head%}-->
 
-{% endblock %}
+<!--{% endblock %}-->
 
-{% block body %}
-<form action="/" method="POST">
-    <div class="search">
-        <input type="text" id="searchInput" id="Url" name="Url"
-               placeholder="youtube link here (FULL URL)">
-        <button id="searchButton">search</button>
-    </div>
-</form>
+<!--{% block body %}-->
+<!--<form action="/" method="POST">-->
+<!--    <div class="search">-->
+<!--        <input type="text" id="searchInput" id="Url" name="Url"-->
+<!--               placeholder="youtube link here (FULL URL)">-->
+<!--        <button id="searchButton">search</button>-->
+<!--    </div>-->
+<!--</form>-->
 
-<div class="container">
-    <div class="main-video">
-        <div class="video">
-            <img src={{tasks[Last_id[-1].Played_id].image}} alt={{tasks[Last_id[-1].Played_id].name}} width="700"
-                 height="400">
-            <audio src='' controls id="audioPlayer">
-                Sorry, your browser doesn't support html5!
-            </audio>
-            <h3 class="title">{{tasks[Last_id[-1].Played_id].name}}</h3>
+<!--<div class="container">-->
+<!--    <div class="main-video">-->
+<!--        <div class="video">-->
+<!--            <img src={{tasks[Last_id[-1].Played_id].image}} alt={{tasks[Last_id[-1].Played_id].name}} width="700"-->
+<!--                 height="400">-->
+<!--            <audio src='' controls id="audioPlayer">-->
+<!--                Sorry, your browser doesn't support html5!-->
+<!--            </audio>-->
+<!--            <h3 class="title">{{tasks[Last_id[-1].Played_id].name}}</h3>-->
 
-        </div>
-    </div>
-
-
+<!--        </div>-->
+<!--    </div>-->
 
 
-    <div class="video-list">
-        {% for task in tasks %}
-        <div class="vid">
-            <ul id="playlist">
 
 
-                <li><a href={{task.path}} onclick='myfunction({{task.id}});' >{{task.name}}</a></li>
-
-            </ul>
-
-
-        </div>
-
-        {%endfor%}
+<!--    <div class="video-list">-->
+<!--        {% for task in tasks %}-->
+<!--        <div class="vid">-->
+<!--            <ul id="playlist">-->
 
 
-    </div>
-</div>
+<!--                <li><a href={{task.path}} onclick='myfunction({{task.id}});' >{{task.name}}</a></li>-->
+
+<!--            </ul>-->
 
 
-<script src="https://code.jquery.com/jquery-2.2.0.js"></script>
-<script src="audioPlayer.js"></script>
-<script>
-        // loads the audio player
-        audioPlayer();
+<!--        </div>-->
+
+<!--        {%endfor%}-->
 
 
+<!--    </div>-->
+<!--</div>-->
+
+
+<!--<script src="https://code.jquery.com/jquery-2.2.0.js"></script>-->
+<!--<script src="audioPlayer.js"></script>-->
+<!--<script>-->
+<!--        // loads the audio player-->
+<!--        audioPlayer();-->
 
 
 
@@ -65,9 +63,11 @@
 
 
 
-</script>
 
 
-</div>
+<!--</script>-->
 
-{% endblock %}
+
+<!--</div>-->
+
+<!--{% endblock %}-->
