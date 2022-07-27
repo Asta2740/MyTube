@@ -18,7 +18,8 @@ Got bored of ads on youtube and the amount of data that i consume each time to l
 2. Run `pip install flask`
 3. Run `pip install flask_sqlalchemy`
 4. Run `pip install pytube`
-5. Run `pip install datetime`
+5. Run `pip --upgrade pytube`
+6. Run `pip install datetime`
 
 ## Developers and maintainers.
 
