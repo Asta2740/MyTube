@@ -40,7 +40,7 @@ def index():
                     for count in tasks:
                         number_of_music = number_of_music + 1
                     print("2")
-                    print(Specific_song[1] ,Specific_song[1][17:30] )
+                    print(Specific_song[1], Specific_song[1][17:30])
                     os.rename(Specific_song[1], Specific_song[1][17:30] + 'new' + str(number_of_music) + '.mp3')
                     print("3")
                     new_path = Specific_song[1][17:30] + 'new' + str(number_of_music) + '.mp3'
@@ -92,11 +92,11 @@ def index():
 
         except:
             pass
-        try:
-            for x in tasks:
-                print(x.id)
-        except:
-            pass
+        # try:
+        #     for x in tasks:
+        #         print(x.id)
+        # except:
+        #     pass
         #
         # print(tasks)
         # print(playing_id)

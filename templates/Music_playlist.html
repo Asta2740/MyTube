@@ -10,79 +10,80 @@
 
 {% block body %}
 <div class="container">
-     <div class="shein2egypt" style="max-width:1400px">
+    <div class="shein2egypt" style="max-width:1400px">
         <h1 class="shein2egypt-text">MyTube</h1>
 
         <br>
-    <form action="/" method="POST">
+        <form action="/" method="POST">
 
-        <div class="form"><input type="text" class="search-box-shein" id="Url" name="Url"
-                                 placeholder="youtube link here (FULL URL)"/>
-            <button class="search-btn-shein">search
-            </button>
+            <div class="form"><input type="text" class="search-box-shein" id="Url" name="Url"
+                                     placeholder="youtube link here (FULL URL)"/>
+                <button class="search-btn-shein">search
+                </button>
 
 
-        </div>
-    </form>
-
-    <audio id="audio" preload="none" tabindex="0">
-        {% for task in tasks %}
-        <source src={{task.path}} data-track-number={{task.id}}/>
-        {%endfor%}
-        Your browser does not support HTML5 audio.
-    </audio>
-
-    <div class="player">
-
-        <div class="large-toggle-btn">
-            <i class="large-play-btn"><span class="screen-reader-text">Large toggle button</span></i>
-        </div>
-        <div class="info-box">
-            <div class="track-info-box">
-                <div class="track-title-text"></div>
-                <div class="audio-time">
-                    <span class="current-time">00:00</span> /
-                    <span class="duration">00:00</span>
-                </div>
             </div>
-            <!-- /.info-box -->
-            <div class="progress-box">
-                <div class="progress-cell">
-                    <div class="progress">
-                        <div class="progress-buffer"></div>
-                        <div class="progress-indicator"></div>
+        </form>
+
+        <audio id="audio" preload="none" tabindex="0">
+            {% for task in tasks %}
+            <source src={{task.path}} data-track-number={{task.id}}/>
+            {%endfor%}
+            Your browser does not support HTML5 audio.
+        </audio>
+
+        <div class="player">
+
+            <div class="large-toggle-btn">
+                <i class="large-play-btn"><span class="screen-reader-text">Large toggle button</span></i>
+            </div>
+            <div class="info-box">
+                <div class="track-info-box">
+                    <div class="track-title-text"></div>
+                    <div class="audio-time">
+                        <span class="current-time">00:00</span> /
+                        <span class="duration">00:00</span>
                     </div>
                 </div>
+                <!-- /.info-box -->
+                <div class="progress-box">
+                    <div class="progress-cell">
+                        <div class="progress">
+                            <div class="progress-buffer"></div>
+                            <div class="progress-indicator"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.progress-box -->
+            <div class="controls-box">
+                <i class="previous-track-btn disabled"><span class="screen-reader-text">Previous track button</span></i>
+                <i class="next-track-btn"><span class="screen-reader-text">Next track button</span></i>
             </div>
 
+            <!-- /.controls-box -->
         </div>
-        <!-- /.progress-box -->
-        <div class="controls-box">
-            <i class="previous-track-btn disabled"><span class="screen-reader-text">Previous track button</span></i>
-            <i class="next-track-btn"><span class="screen-reader-text">Next track button</span></i>
-        </div>
-
-        <!-- /.controls-box -->
-    </div>
-    <div class="video-list">
-        <div class="play-list">
-            {% for task in tasks %}
-            <div class="vid">
-            <div class="play-list-row" data-track-row={{task.id}}>
-                <div class="small-toggle-btn">
-                    <i class="small-play-btn"><span class="screen-reader-text">Small toggle button</span></i>
+        <div class="video-list">
+            <div class="play-list">
+                {% for task in tasks %}
+                <div class="vid">
+                    <div class="play-list-row" data-track-row={{task.id}}>
+                        <div class="small-toggle-btn">
+                            <i class="small-play-btn"><span class="screen-reader-text">Small toggle button</span></i>
+                        </div>
+                        <div class="track-number">
+                            {{task.id}}
+                        </div>
+                        <div class="track-title">
+                            <a class="playlist-track" href="#" data-play-track={{task.id}}>{{task.name}}</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="track-number">
-                    {{task.id}}
-                </div>
-                <div class="track-title">
-                    <a class="playlist-track" href="#" data-play-track={{task.id}}>{{task.name}}</a>
-                </div>
+                {%endfor%}
             </div>
         </div>
-        {%endfor%}
     </div>
-</div>
 </div>
 <!-- partial -->
 <script src="static/js/script.js"></script>
